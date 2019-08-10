@@ -2,7 +2,7 @@ public class Avaliador {
     /*
     A var maiorDeTodos e inicializado com o menor valor possivel para um double,
     sendo assim ele cai na condiçao do if na primeira vez e é substituido pelo primeiro valor da lista
-    A var menorDeTodos segue a mesma condição porém no valor inverso
+    A var menorDeTodos segue a mesma condição porém no valor inverso BUG
     */
 
     private double maiorDeTodos = Double.NEGATIVE_INFINITY;
