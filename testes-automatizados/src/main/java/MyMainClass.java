@@ -13,5 +13,6 @@ public class MyMainClass {
         leiloeiro.avalia(leilao);
 
         System.out.println(leiloeiro.getMaiorLance());
+        System.out.println(leiloeiro.getMenorDeTodos());
     }
 }
