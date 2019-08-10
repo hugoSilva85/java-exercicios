@@ -14,7 +14,5 @@ public class Leilao {
         lances.add(lance);
     }
 
-    public List<Lance> getLances() {
-        return lances;
-    }
+    public List<Lance> getLances() { return lances; }
 }
