@@ -3,7 +3,7 @@ import org.junit.Test;
 
 public class AvaliadorTest {
     @Test
-    public void MustToBeShowBidsInAscendingOrder(){
+    public void GivenIamReceivedManyBids(){
 
         Usuario yuri = new Usuario("Yuri");
         Usuario hugo = new Usuario("Hugo");
@@ -22,6 +22,24 @@ public class AvaliadorTest {
 
         double maiorEsperado = 6700.0;
         double menorEsperado = 3000.0;
+
+        Assertions.assertThat(maiorEsperado).isEqualTo(leiloeiro.getMaiorLance());
+        Assertions.assertThat(menorEsperado).isEqualTo(leiloeiro.getMenorDeTodos());
+    }
+
+    @Test
+    public void  GivenIamReceivedJustOneBid(){
+        Usuario yuri = new Usuario("Yuri");
+
+        Leilao leilao = new Leilao("PS4 Novo");
+
+        leilao.propoe(new Lance(yuri,800.0));
+
+        Avaliador leiloeiro = new Avaliador();
+        leiloeiro.avalia(leilao);
+
+        double maiorEsperado = 800.0;
+        double menorEsperado = 800.0;
 
         Assertions.assertThat(maiorEsperado).isEqualTo(leiloeiro.getMaiorLance());
         Assertions.assertThat(menorEsperado).isEqualTo(leiloeiro.getMenorDeTodos());
