@@ -1,6 +1,8 @@
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 
+import java.util.List;
+
 public class AvaliadorTest {
     @Test
     public void GivenIamReceivedManyBids(){
@@ -43,5 +45,30 @@ public class AvaliadorTest {
 
         assertThat(maiorEsperado).isEqualTo(leiloeiro.getMaiorLance());
         assertThat(menorEsperado).isEqualTo(leiloeiro.getMenorDeTodos());
+    }
+
+    @Test
+    public void GivenIamWantToSeeTheThreeHighestBids(){
+        Usuario hugo = new Usuario("Hugo");
+        Usuario day  = new Usuario("Dayane");
+        Usuario joao = new Usuario("Joao");
+
+        Leilao leilao = new Leilao("Casa na praia");
+
+        leilao.propoe(new Lance(hugo,30000.0));
+        leilao.propoe(new Lance(day, 40000.0));
+        leilao.propoe(new Lance(joao,5000.0));
+        leilao.propoe(new Lance(hugo,8000.0));
+
+        Avaliador leiloeiro = new Avaliador();
+        leiloeiro.avalia(leilao);
+
+        List<Lance> maiores = leiloeiro.getTresMaiores();
+
+        assertThat(3).isEqualTo(maiores.size());
+        assertThat(40000.0).isEqualTo(maiores.get(0).getValor());
+        assertThat(30000.0).isEqualTo(maiores.get(1).getValor());
+        assertThat(8000.0).isEqualTo(maiores.get(2).getValor());
+
     }
 }

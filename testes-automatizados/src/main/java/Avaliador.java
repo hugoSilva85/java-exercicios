@@ -23,18 +23,22 @@ public class Avaliador {
                 menorDeTodos = lance.getValor();
             }
         }
+        pegaOsMaioresNo(leilao);
     }
 
     private void pegaOsMaioresNo(Leilao leilao){
         maiores = new ArrayList<Lance>(leilao.getLances());
         Collections.sort(maiores, new Comparator<Lance>() {
+            @Override
             public int compare(Lance lance1, Lance lance2) {
                 if(lance1.getValor() < lance2.getValor()) return 1;
                 if(lance1.getValor() > lance2.getValor()) return -1;
                 return 0;
             }
         });
-        maiores = maiores.subList(0,3);
+        maiores = maiores.subList(0,
+                maiores.size() > 3 ? 3 : maiores.size()
+        );
     }
 
     public List<Lance> getTresMaiores(){ return this.maiores; }
