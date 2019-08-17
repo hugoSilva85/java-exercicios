@@ -4,14 +4,23 @@ import org.junit.Test;
 import java.util.List;
 
 public class AvaliadorTest {
+    private Avaliador leiloeiro;
+    private Usuario yuri;
+    private Usuario hugo;
+    private Usuario tete;
+    private Usuario day;
+    private Usuario joao;
+
+    private void criaAvaliador(){
+        this.leiloeiro = new Avaliador();
+        this.yuri = new Usuario("Yuri");
+        this.hugo = new Usuario("Hugo");
+        this.tete = new Usuario("Tete");
+        this.day = new Usuario("Day");
+        this.joao = new Usuario("Joao");
+    }
     @Test
     public void GivenIamReceivedManyBids(){
-
-        Usuario yuri = new Usuario("Yuri");
-        Usuario hugo = new Usuario("Hugo");
-        Usuario tete = new Usuario("Tete");
-        Usuario day = new Usuario("Day");
-
         Leilao leilao = new Leilao("Carro com sinistro 2016");
 
         leilao.propoe(new Lance(yuri,3000.0));
@@ -19,7 +28,7 @@ public class AvaliadorTest {
         leilao.propoe(new Lance(hugo,5000.0));
         leilao.propoe(new Lance(day,6700.0));
 
-        Avaliador leiloeiro = new Avaliador();
+        criaAvaliador();
         leiloeiro.avalia(leilao);
 
         double maiorEsperado = 6700.0;
@@ -31,13 +40,11 @@ public class AvaliadorTest {
 
     @Test
     public void  GivenIamReceivedJustOneBid(){
-        Usuario yuri = new Usuario("Yuri");
-
         Leilao leilao = new Leilao("PS4 Novo");
 
         leilao.propoe(new Lance(yuri,800.0));
 
-        Avaliador leiloeiro = new Avaliador();
+        criaAvaliador();
         leiloeiro.avalia(leilao);
 
         double maiorEsperado = 800.0;
@@ -49,10 +56,6 @@ public class AvaliadorTest {
 
     @Test
     public void GivenIamWantToSeeTheThreeHighestBids(){
-        Usuario hugo = new Usuario("Hugo");
-        Usuario day  = new Usuario("Dayane");
-        Usuario joao = new Usuario("Joao");
-
         Leilao leilao = new Leilao("Casa na praia");
 
         leilao.propoe(new Lance(hugo,30000.0));
@@ -60,7 +63,7 @@ public class AvaliadorTest {
         leilao.propoe(new Lance(joao,5000.0));
         leilao.propoe(new Lance(hugo,8000.0));
 
-        Avaliador leiloeiro = new Avaliador();
+        criaAvaliador();
         leiloeiro.avalia(leilao);
 
         List<Lance> maiores = leiloeiro.getTresMaiores();
