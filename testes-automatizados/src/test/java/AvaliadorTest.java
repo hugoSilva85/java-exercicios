@@ -21,12 +21,13 @@ public class AvaliadorTest {
     }
     @Test
     public void GivenIamReceivedManyBids(){
-        Leilao leilao = new Leilao("Carro com sinistro 2016");
-
-        leilao.propoe(new Lance(yuri,3000.0));
-        leilao.propoe(new Lance(tete,3500.0));
-        leilao.propoe(new Lance(hugo,5000.0));
-        leilao.propoe(new Lance(day,6700.0));
+        Leilao leilao = new CriadorDeLeilao()
+                .para("Carro com sinistro 2016")
+                .lance(yuri,3000.0)
+                .lance(tete,3500.0)
+                .lance(hugo,5000.0)
+                .lance(day,6700.0)
+                .constori();
 
         criaAvaliador();
         leiloeiro.avalia(leilao);
@@ -40,9 +41,10 @@ public class AvaliadorTest {
 
     @Test
     public void  GivenIamReceivedJustOneBid(){
-        Leilao leilao = new Leilao("PS4 Novo");
-
-        leilao.propoe(new Lance(yuri,800.0));
+        Leilao leilao = new CriadorDeLeilao()
+                .para("PS4 Novo")
+                .lance(yuri,800.0)
+                .constori();
 
         criaAvaliador();
         leiloeiro.avalia(leilao);
@@ -56,12 +58,13 @@ public class AvaliadorTest {
 
     @Test
     public void GivenIamWantToSeeTheThreeHighestBids(){
-        Leilao leilao = new Leilao("Casa na praia");
-
-        leilao.propoe(new Lance(hugo,30000.0));
-        leilao.propoe(new Lance(day, 40000.0));
-        leilao.propoe(new Lance(joao,5000.0));
-        leilao.propoe(new Lance(hugo,8000.0));
+        Leilao leilao = new CriadorDeLeilao()
+                .para("Casa na praia")
+                .lance(hugo,30000.0)
+                .lance(day, 40000.0)
+                .lance(joao,5000.0)
+                .lance(hugo,8000.0)
+                .constori();
 
         criaAvaliador();
         leiloeiro.avalia(leilao);
