@@ -13,4 +13,7 @@ public class CriadorDeLeilao {
         return this;
     }
 
+    public Leilao constori(){
+        return leilao;
+    }
 }
