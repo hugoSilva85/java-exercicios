@@ -1,7 +1,8 @@
-import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AvaliadorTest {
     private Avaliador leiloeiro;
@@ -75,6 +76,14 @@ public class AvaliadorTest {
         assertThat(40000.0).isEqualTo(maiores.get(0).getValor());
         assertThat(30000.0).isEqualTo(maiores.get(1).getValor());
         assertThat(8000.0).isEqualTo(maiores.get(2).getValor());
+    }
 
+    @Test(expected = RuntimeException.class)
+    public void GivenIamNoReceivedAnyOneBids(){
+            Leilao leilao = new CriadorDeLeilao()
+                    .para("Marea turbo")
+                    .constori();
+
+            leiloeiro.avalia(leilao);
     }
 }
