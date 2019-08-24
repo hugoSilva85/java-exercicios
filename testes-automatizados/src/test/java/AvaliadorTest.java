@@ -1,5 +1,4 @@
 import org.junit.Test;
-
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,6 +19,7 @@ public class AvaliadorTest {
         this.day = new Usuario("Day");
         this.joao = new Usuario("Joao");
     }
+
     @Test
     public void GivenIamReceivedManyBids(){
         Leilao leilao = new CriadorDeLeilao()
