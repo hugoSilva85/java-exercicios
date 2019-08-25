@@ -5,12 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LeilaoTest {
     private Usuario yuri;
     private Usuario hugo;
-    private Usuario tete;
+    private Usuario tate;
 
     private void criaAvaliador() {
         this.yuri = new Usuario("Yuri");
         this.hugo = new Usuario("Hugo");
-        this.tete = new Usuario("Tete");
+        this.tate = new Usuario("Tete");
     }
 
     @Test
@@ -28,7 +28,7 @@ public class LeilaoTest {
         Leilao leilao = new CriadorDeLeilao()
                 .para("Carro com sinistro 2016")
                 .lance(yuri, 3000.0)
-                .lance(tete, 3500.0)
+                .lance(tate, 3500.0)
                 .lance(hugo, 5000.0)
                 .constori();
 
@@ -40,7 +40,7 @@ public class LeilaoTest {
         Leilao leilao = new CriadorDeLeilao()
                 .para("Carro com sinistro 2016")
                 .lance(yuri, 3000.0)
-                .lance(yuri, 3500.0)
+                .lance(yuri, 4400.0)
                 .constori();
 
         assertThat(1).isEqualTo(leilao.getLances().size());
