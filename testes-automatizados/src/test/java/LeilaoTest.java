@@ -34,5 +34,16 @@ public class LeilaoTest {
 
         assertThat(3).isEqualTo(leilao.getLances().size());
     }
+
+    @Test
+    public void GivenReceivedMoreThanOneBidsFromTheSamePerson(){
+        Leilao leilao = new CriadorDeLeilao()
+                .para("Carro com sinistro 2016")
+                .lance(yuri, 3000.0)
+                .lance(yuri, 3500.0)
+                .constori();
+
+        assertThat(1).isEqualTo(leilao.getLances().size());
+    }
 }
 
