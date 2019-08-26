@@ -11,9 +11,15 @@ public class Leilao {
     }
 
     public void propoe(Lance lance){
-        System.out.println(lance.getUsuario() +"===" +lance.getValor());
+        //System.out.println(lance.getUsuario() +"===" +lance.getValor());
 
-        lances.add(lance);
+        if(lances.isEmpty() ||
+                !ultimoLanceDado()
+                .getUsuario()
+                .equals(lance.getUsuario()))
+        {
+            lances.add(lance);
+        }
     }
 
     public List<Lance> getLances() { return lances; }
