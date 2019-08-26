@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -7,7 +8,8 @@ public class LeilaoTest {
     private Usuario hugo;
     private Usuario tate;
 
-    private void criaAvaliador() {
+    @Before
+    public void criaAvaliador() {
         this.yuri = new Usuario("Yuri");
         this.hugo = new Usuario("Hugo");
         this.tate = new Usuario("Tete");

@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 import java.util.List;
 
@@ -11,7 +12,8 @@ public class AvaliadorTest {
     private Usuario day;
     private Usuario joao;
 
-    private void criaAvaliador(){
+    @Before
+    public void criaAvaliador(){
         this.leiloeiro = new Avaliador();
         this.yuri = new Usuario("Yuri");
         this.hugo = new Usuario("Hugo");
