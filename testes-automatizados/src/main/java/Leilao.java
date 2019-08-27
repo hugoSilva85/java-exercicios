@@ -11,8 +11,6 @@ public class Leilao {
     }
 
     public void propoe(Lance lance){
-        //System.out.println(lance.getUsuario() +"===" +lance.getValor());
-
         if(lances.isEmpty() ||
                 !ultimoLanceDado()
                 .getUsuario()
