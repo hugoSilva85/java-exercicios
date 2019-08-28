@@ -38,7 +38,7 @@ public class LeilaoTest {
     }
 
     @Test
-    public void GivenReceivedMoreThanOneBidsFromTheSamePerson(){
+    public void GivenReceivedMoreThanOneBidsFromTheSamePersonInSequenceMustToBeBlocked(){
         Leilao leilao = new CriadorDeLeilao()
                 .para("Carro com sinistro 2016")
                 .lance(yuri, 3000.0)
@@ -46,6 +46,31 @@ public class LeilaoTest {
                 .constori();
 
         assertThat(1).isEqualTo(leilao.getLances().size());
+    }
+
+    @Test
+    public void GivenReceivedMorethanFiveBidsFromtheSamePersonMustBeIgnoredAfterFifthBid(){
+        Leilao leilao = new CriadorDeLeilao()
+                .para("Carro com sinistro 2016")
+                .lance(yuri, 3000.0)
+                .lance(hugo, 4000.0)
+                .lance(yuri, 5000.0)
+                .lance(hugo, 6000.0)
+                .lance(yuri, 7000.0)
+                .lance(hugo, 8000.0)
+                .lance(yuri, 9000.0)
+                .lance(hugo, 9100.0)
+                .lance(yuri, 9200.0)
+                .lance(hugo, 9300.0)
+                .lance(yuri, 9400.0)
+                .constori();
+
+        int ultimo = leilao.getLances().size()-1;
+        Lance ultimoLance = leilao.getLances().get(ultimo);
+
+        assertThat(10).isEqualTo(leilao.getLances().size());
+        assertThat(9300.0).isEqualTo(ultimoLance.getValor());
+        assertThat(hugo).isEqualTo(ultimoLance.getUsuario());
     }
 }
 
