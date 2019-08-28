@@ -4,6 +4,7 @@ import java.util.List;
 public class Leilao {
     private String produto;
     private List<Lance> lances;
+    private final int MAX_LANCES = 5;
 
     public Leilao(String produto){
         this.lances = new ArrayList<Lance>();
@@ -13,11 +14,7 @@ public class Leilao {
     public void propoe(Lance lance){
 
 
-        if(lances.isEmpty() ||
-                (!ultimoLanceDado()
-                .getUsuario()
-                .equals(lance.getUsuario()) &&
-                        qtdDeLancesDo(lance.getUsuario()) < 5))
+        if( lances.isEmpty() || podeDarLance(lance.getUsuario()))
         {
             lances.add(lance);
         }
@@ -32,5 +29,12 @@ public class Leilao {
             if(l.getUsuario().equals(usuario)) total++;
         }
         return total;
+    }
+
+    private boolean podeDarLance(Usuario usuario){
+        return  !ultimoLanceDado()
+                .getUsuario()
+                .equals(usuario) &&
+                qtdDeLancesDo(usuario) < MAX_LANCES;
     }
 }
