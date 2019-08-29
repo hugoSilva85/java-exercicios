@@ -1,9 +1,11 @@
+package services;
+
 import domain.Lance;
 import domain.Leilao;
 import domain.Usuario;
 import org.junit.Before;
 import org.junit.Test;
-import service.Avaliador;
+import services.Avaliador;
 
 import java.util.List;
 

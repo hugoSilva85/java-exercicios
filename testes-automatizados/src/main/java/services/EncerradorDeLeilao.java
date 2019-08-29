@@ -1,4 +1,4 @@
-package service;
+package services;
 
 public class EncerradorDeLeilao {
     private int toltal =0;

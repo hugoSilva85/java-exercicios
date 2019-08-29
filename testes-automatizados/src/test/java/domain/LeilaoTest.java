@@ -1,8 +1,11 @@
+package domain;
+
 import domain.Lance;
 import domain.Leilao;
 import domain.Usuario;
 import org.junit.Before;
 import org.junit.Test;
+import services.CriadorDeLeilao;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,7 +1,7 @@
 import domain.Lance;
 import domain.Leilao;
 import domain.Usuario;
-import service.Avaliador;
+import services.Avaliador;
 
 public class MyMainClass {
     public static void main(String[] args) {

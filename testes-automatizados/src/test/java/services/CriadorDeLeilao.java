@@ -1,3 +1,5 @@
+package services;
+
 import domain.Lance;
 import domain.Leilao;
 import domain.Usuario;
