@@ -1,3 +1,7 @@
+import domain.Lance;
+import domain.Leilao;
+import domain.Usuario;
+
 public class CriadorDeLeilao {
     private Leilao leilao;
 

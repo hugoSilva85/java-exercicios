@@ -1,3 +1,6 @@
+import domain.Lance;
+import domain.Leilao;
+import domain.Usuario;
 import org.junit.Before;
 import org.junit.Test;
 

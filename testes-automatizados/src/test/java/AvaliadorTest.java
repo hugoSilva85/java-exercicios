@@ -1,5 +1,10 @@
+import domain.Lance;
+import domain.Leilao;
+import domain.Usuario;
 import org.junit.Before;
 import org.junit.Test;
+import service.Avaliador;
+
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;

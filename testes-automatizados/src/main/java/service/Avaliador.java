@@ -1,5 +1,7 @@
-import dominio.Lance;
-import dominio.Leilao;
+package service;
+
+import domain.Lance;
+import domain.Leilao;
 
 import java.util.ArrayList;
 import java.util.Collections;

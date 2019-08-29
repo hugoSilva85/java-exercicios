@@ -1,3 +1,8 @@
+import domain.Lance;
+import domain.Leilao;
+import domain.Usuario;
+import service.Avaliador;
+
 public class MyMainClass {
     public static void main(String[] args) {
         Usuario hugo = new Usuario("Hugo");
