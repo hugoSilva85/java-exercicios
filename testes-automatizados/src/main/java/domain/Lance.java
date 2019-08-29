@@ -1,3 +1,5 @@
+package dominio;
+
 public class Lance {
     private Usuario usuario;
     private double valor;

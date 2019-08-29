@@ -1,3 +1,6 @@
+import dominio.Lance;
+import dominio.Leilao;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
