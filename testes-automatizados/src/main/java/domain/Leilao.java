@@ -1,12 +1,16 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Leilao {
     private String produto;
     private List<Lance> lances;
     private final int MAX_LANCES = 5;
+    private Integer id;
+    private String descricao;
+    private boolean encerrado;
 
     public Leilao(String produto){
         this.lances = new ArrayList<Lance>();
@@ -38,5 +42,29 @@ public class Leilao {
                 .getUsuario()
                 .equals(usuario) &&
                 qtdDeLancesDo(usuario) < MAX_LANCES;
+    }
+
+    public void setId(Integer id){
+        this.id = id;
+    }
+
+    public Integer getId(){
+        return this.id;
+    }
+
+    public void getDescricao(String descricaoValue){
+        this.descricao = descricaoValue;
+    }
+
+    public String getDescricao(){
+        return this.descricao;
+    }
+
+    public void encerra() {
+        this.encerrado = true;
+    }
+
+    public boolean isEncerrado() {
+        return encerrado;
     }
 }
